@@ -1,0 +1,6 @@
+Flask
+flask-cors
+pyotp
+qrcode
+passlib
+bcrypt
