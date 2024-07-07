@@ -1,41 +1,56 @@
 # Login Page
 
 ## Environment Requirements
+### General
+- Windows 10
+
+### Backend
+- Python 3.12.4
+
+### Frontend
 - Node.js v20.11.1
 - npm v10.5.0
-- Windows 10
 
 ## Installation Instructions
 
 1. **Clone the repository**
     ```bash
-    git clone https://github.com/helloworld0606/interviewProjects.git
+    git clone https://github.com/helloworld0606/interviewPython.git
     ```
 
-2. **Run the backend server**
+2. **Set up the backend server** (cmd)
     ```bash
-    cd interviewProjects/backend
-    npm install
-    npm audit  # find security vulnerabilities
-    npm audit fix  # fix any security vulnerabilities
-    node server.js
+    cd C:\interviewPython\backend
+    python -m venv venv
+    .\venv\Scripts\activate
+    pip install -r requirements.txt
     ```
 
-3. **Run the frontend server** (open another cmd)
+    **Install Rust** (if not already installed, Rust is needed to compile `bcrypt`)
     ```bash
-    cd interviewProjects/frontend
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    ```
+
+   **Run the backend server**
+    ```bash
+    python app.py
+    ```
+
+4. **Run the frontend server** (open another cmd)
+   ```bash
+    cd C:\interviewPython\frontend
     npm install
     npm audit  # find security vulnerabilities
     npm audit fix  # fix any security vulnerabilities
     npm run serve
     ```
 
-4. **The app will run at [http://localhost:8080/](http://localhost:8080/)**
+5. **The app will run at [http://localhost:8080/](http://localhost:8080/)**
 
 
 
 ## Account info in db.json
-(make sure backend is running)
+"make sure backend is running"
 
 Get account
 ```bash
@@ -47,7 +62,15 @@ curl -X POST "http://localhost:3000/users" -H "Content-Type: application/json" -
 ```
 Login account
 ```
-curl -X POST "http://localhost:3000/users/login" -H "Content-Type: application/json" -d "{\"account\": \"james123@gmail.com\", \"password\": \"DEF789\"}"
+curl -X POST "http://localhost:3000/users/login" -H "Content-Type: application/json" -d "{\"account\":\"alice123@gmail.com\",\"password\":\"ABC123456\"}"
+```
+Two Factor Auth
+1. When login is successful, a QR code window will pop up.
+2. Scan the QR code using the Authenticator app on your iPhone.
+3. Replace XXXXXX (6 digits) with the one-time code from MyApp.
+
+```
+curl -X POST "http://localhost:3000/2fa/verify-otp" -H "Content-Type: application/json" -d "{\"userId\":1,\"otp\”:\”XXXXXX\”}”
 ```
 
 ## Test account:
