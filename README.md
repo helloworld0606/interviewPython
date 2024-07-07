@@ -26,7 +26,7 @@
     pip install -r requirements.txt
     ```
 
-    **Install Rust** (if not already installed, Rust is needed to compile `bcrypt`)
+    **Install Rust** (if not already installed) Rust is needed to compile `bcrypt`
     ```bash
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     ```
@@ -36,7 +36,7 @@
     python app.py
     ```
 
-4. **Run the frontend server** (open another cmd)
+4. **Run the frontend server** (terminal)
    ```bash
     cd C:\interviewPython\frontend
     npm install
