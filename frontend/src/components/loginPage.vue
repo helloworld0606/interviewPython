@@ -85,7 +85,7 @@ export default {
     async verifyOtp() {
       this.error = null;
       try {
-        console.log("Verifying OTP for userId:", this.userId, "with OTP:", this.otp); // 調試信息
+        console.log("Verifying OTP for userId:", this.userId, "with OTP:", this.otp); 
         const response = await fetch("http://localhost:3000/2fa/verify-otp", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -126,7 +126,7 @@ export default {
 
         if (!response.ok) {
           const errorData = await response.json();
-          console.error('Error data:', errorData); // 调试信息
+          console.error('Error data:', errorData); 
           throw new Error(errorData.error || 'Google login failed');
         }
 
